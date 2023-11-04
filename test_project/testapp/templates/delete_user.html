@@ -1,0 +1,21 @@
+<!-- update_user.html -->
+<!DOCTYPE html>
+<html>
+    <title>Delete User</title>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" onclick="return confirmsubmission()">delete User</button>
+    
+    <a href="{% url 'manage' %}">cancel</a>
+    
+  </form>
+    <script>
+        //confirm("are you sure ?")
+        function confirmsubmission(){
+            var result=confirm("are you sure ?")
+            return result
+        }
+    </script>
+    
+    </html>

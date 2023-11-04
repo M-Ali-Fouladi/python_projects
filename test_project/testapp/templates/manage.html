@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Users</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Is Staff</th>
+            <th>Is Active</th>
+            <th>Date Joined</th>
+            <th>Actions</th> 
+            <!-- Add other custom fields here, if any -->
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.last_name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.is_staff }}</td>
+                <td>{{ user.is_active }}</td>
+                <td>{{ user.date_joined }}</td>
+                <td>
+                    <!-- Add an "Update" button that links to the update_user view with the user's ID as a parameter -->
+                    <a href="{% url 'update_user' user.id %}">Update</a>
+                    <a href="{% url 'delete_user' user.id %}">Delete</a>
+                    
+                </td>
+                <!-- Add other custom fields here, if any -->
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
